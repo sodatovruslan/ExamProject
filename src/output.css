@@ -10,6 +10,9 @@
     --color-red-500: oklch(63.7% 0.237 25.331);
     --color-green-700: oklch(52.7% 0.154 150.069);
     --color-blue-600: oklch(54.6% 0.245 262.881);
+    --spacing: 0.25rem;
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -163,8 +166,26 @@
   }
 }
 @layer utilities {
+  .m-auto {
+    margin: auto;
+  }
+  .flex {
+    display: flex;
+  }
   .table {
     display: table;
+  }
+  .h-\[40px\] {
+    height: 40px;
+  }
+  .w-\[9\%\] {
+    width: 9%;
+  }
+  .w-\[80\] {
+    width: 80;
+  }
+  .w-\[90\%\] {
+    width: 90%;
   }
   .border-collapse {
     border-collapse: collapse;
@@ -172,9 +193,46 @@
   .resize {
     resize: both;
   }
+  .items-center {
+    align-items: center;
+  }
+  .justify-around {
+    justify-content: space-around;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .gap-0 {
+    gap: calc(var(--spacing) * 0);
+  }
+  .gap-\[5px\] {
+    gap: 5px;
+  }
+  .gap-\[10px\] {
+    gap: 10px;
+  }
   .border {
     border-style: var(--tw-border-style);
     border-width: 1px;
+  }
+  .bg-\[\#673A44\] {
+    background-color: #673A44;
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-\[12px\] {
+    font-size: 12px;
+  }
+  .text-\[14px\] {
+    font-size: 14px;
+  }
+  .text-\[16px\] {
+    font-size: 16px;
+  }
+  .text-\[white\] {
+    color: white;
   }
   .text-red-500 {
     color: var(--color-red-500);
@@ -186,9 +244,48 @@
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
   }
+  .marker\:m-auto {
+    & *::marker {
+      margin: auto;
+    }
+    &::marker {
+      margin: auto;
+    }
+    & *::-webkit-details-marker {
+      margin: auto;
+    }
+    &::-webkit-details-marker {
+      margin: auto;
+    }
+  }
+  .md\:w-\[90\%\] {
+    @media (width >= 48rem) {
+      width: 90%;
+    }
+  }
+  .md\:justify-between {
+    @media (width >= 48rem) {
+      justify-content: space-between;
+    }
+  }
+  .md\:gap-\[40px\] {
+    @media (width >= 48rem) {
+      gap: 40px;
+    }
+  }
   .md\:text-blue-600 {
     @media (width >= 48rem) {
       color: var(--color-blue-600);
+    }
+  }
+  .lg\:justify-between {
+    @media (width >= 64rem) {
+      justify-content: space-between;
+    }
+  }
+  .lg\:gap-\[80px\] {
+    @media (width >= 64rem) {
+      gap: 80px;
     }
   }
   .lg\:text-green-700 {
@@ -196,6 +293,9 @@
       color: var(--color-green-700);
     }
   }
+}
+* {
+  font-family: sans-serif;
 }
 @property --tw-border-style {
   syntax: "*";
